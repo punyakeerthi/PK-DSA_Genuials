@@ -1,6 +1,6 @@
 package SearchAlgo.BinarySearch;
 
-
+//Binary search
 class BinarySearch {
  
     
