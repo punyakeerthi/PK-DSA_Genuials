@@ -27,33 +27,33 @@ import java.util.Arrays;
  * unique.
  */
 
-//Brute Force approch
 
-public class MissingNumber {
+//Best Approcah
 
-	public static int missingNumber(int[] nums) {
-		int n = nums.length;
-		int notFound = 0;
-		for (int i = 0; i < n + 1; i++) {
+public class MissingNumberBestApproach {
+	
+	
+	   public static int missingNumber(int[] nums) {
+		   Arrays.sort(nums);
+		   int curr=0;
+		    for(int i=0;i<nums.length;i++)
+		    {
+		        if(nums[i]!=curr)
+		        {
+		            return curr;
+		        }
+		        curr++;
+		    }
 
-			for (int j = 0; j < n; j++) {
-				if (nums[j] == i) {
-					break;
-				} else {
-					notFound = i;
-				}
-
-			}
-
-		}
-		return notFound;
-	}
-
+		    return curr;      
+		  }
+	
 	public static void main(String[] args) {
 
-		//int nums[] = { 3, 0, 1 };
-		int nums[]= {0,1};
+		int nums[] = { 3, 0, 1 };
+		//int nums[]= {0,1};
 		int n = missingNumber(nums);
 		System.out.println("missing num: " + n);
 	}
+
 }
