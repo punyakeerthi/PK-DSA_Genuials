@@ -29,35 +29,26 @@ import java.util.Arrays;
 
 //Brute Force approch
 
-public class MissingNumber {
+public class MissingNumberNSumApproach {
 
 	public static int missingNumber(int[] nums) {
 		int n = nums.length;
-		int notFound = 0,found=0;
-		for (int i = 0; i < n + 1; i++) {
-
-			found=0;
-			for (int j = 0; j < n; j++) {
-				if (nums[j] == i) {
-					found=1;
-				} 
-			}
-			
-			if(found!=1)
-			{
-				return i;
-			}
+		
+		int nSum=n*(n+1)/2;
+		int sum=0;
+	 	for (int i = 0; i < n; i++) {
+			sum=nums[i]+sum;
 
 		}
-		return notFound;
+		
+		int missingNum=nSum-sum;
+		return missingNum;
 	}
 
 	public static void main(String[] args) {
 
-		//int nums[] = { 3, 0, 1 };
+		int nums[] = { 3, 0, 1 };
 		//int nums[]= {0,1};
-		//int nums[] = {0, 2, 3 };
-		int nums[] = {1, 2, 3 };
 		int n = missingNumber(nums);
 		System.out.println("missing num: " + n);
 	}
